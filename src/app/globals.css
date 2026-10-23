@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-dark: #1e140f;
+    --brand-darker: #160d09;
+    --brand-deep: #231710;
+    --brand-accent: #d4af37;
+    --brand-gold: #c5a059;
+    --brand-gold-light: #dec388;
+    --brand-cream: #f5efe6;
+    --brand-cream-dark: #ece2d0;
+    --brand-card-dark: #291b14;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #1e140f;
+    color: #ece2d0;
+    font-family: var(--font-montserrat), sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #c5a059;
+    color: #1e140f;
+  }
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #140b07;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b88c42 0%, #c5a059 50%, #9e7534 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(222, 195, 136, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d8ab5b 0%, #dfc58b 50%, #b88c42 100%);
+  box-shadow: 0 0 6px rgba(197, 160, 89, 0.5);
+}
+
+/* Firefox standard scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c5a059 #140b07;
+}
+
+/* Subtle Jaali / Mandala Background Patterns */
+.bg-jaali-dark {
+  background-color: #1e140f;
+  background-image: radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 1px),
+                    radial-gradient(rgba(197, 160, 89, 0.04) 1px, #1e140f 1px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.bg-jaali-cream {
+  background-color: #f6efe6;
+  background-image: radial-gradient(rgba(139, 107, 61, 0.08) 1px, transparent 1px),
+                    radial-gradient(rgba(139, 107, 61, 0.04) 1px, #f6efe6 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Traditional Indian Filigree Border for Footer */
+.filigree-border {
+  background: repeating-linear-gradient(
+    45deg,
+    #8b6736,
+    #8b6736 2px,
+    #523a1a 2px,
+    #523a1a 8px
+  );
+}
+
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-montserrat), sans-serif;
+}
