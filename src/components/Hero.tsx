@@ -81,9 +81,9 @@ export default function Hero({ onOpenConcierge }: HeroProps = {}) {
               </p>
             </ScrollReveal>
 
-            {/* Royal Emblem Divider: 4-petal Mark + Horizontal Line */}
+            {/* Royal Emblem Signature: 4-petal Mark + Horizontal Line + Brand Slogan */}
             <ScrollReveal delay={550} distance={16}>
-              <div className="pt-2 sm:pt-4 flex items-center space-x-4">
+              <div className="pt-2 sm:pt-4 flex items-center space-x-3.5 sm:space-x-4">
                 <div className="w-5 h-5 relative shrink-0">
                   <Image
                     src="/images/trisara_emblem_clean.png"
@@ -93,7 +93,10 @@ export default function Hero({ onOpenConcierge }: HeroProps = {}) {
                     className="object-contain"
                   />
                 </div>
-                <span className="h-[1px] w-16 sm:w-20 bg-[#c5a059]/50" />
+                <span className="h-[1px] w-10 sm:w-14 bg-[#c5a059]/50" />
+                <span className="font-serif italic text-xs sm:text-sm tracking-wider text-[#dec388]">
+                  Gold for Generations
+                </span>
               </div>
             </ScrollReveal>
           </div>

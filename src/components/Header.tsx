@@ -87,7 +87,7 @@ export default function Header({ onOpenConcierge }: HeaderProps) {
           </div>
 
           {/* 1. Primary Navigation Links (Desktop Left Column) */}
-          <nav className="hidden md:flex flex-1 items-center justify-start space-x-7 lg:space-x-9 text-[13px] lg:text-sm font-serif tracking-wide">
+          <nav className="hidden md:flex flex-1 items-center justify-start space-x-6 lg:space-x-8 text-[15px] lg:text-[17px] font-serif tracking-wide">
             {navLinks.map((link) => (
               <a
                 key={link.label}
