@@ -217,7 +217,7 @@ export default function Footer({ onOpenConcierge }: FooterProps = {}) {
         {/* 3. BOTTOM ROW: Copyright, Regulatory Compliance & Developer Credit */}
         <div className="pt-6 border-t border-[#4a2e1d]/15 flex flex-col lg:flex-row items-center justify-between gap-3.5 text-[11px] sm:text-xs text-[#6e574b]">
           <div>
-            <span>© 2025 Trisara Jewellers. All rights reserved.</span>
+            <span>© 2026 Trisara Jewellers. All rights reserved.</span>
           </div>
 
           {/* Statutory Regulatory Accreditations */}
