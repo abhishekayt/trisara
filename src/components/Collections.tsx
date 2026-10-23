@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 interface CollectionItem {
   id: string;
@@ -102,87 +103,96 @@ export default function Collections() {
 
         <div className="max-w-[1440px] 2xl:max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Content Column */}
+            {/* Left Content Column: Museum Staggered Reveal */}
             <div className="lg:col-span-5 space-y-5 sm:space-y-6">
               {/* Tagline with Gold Divider Line */}
-              <div className="flex items-center space-x-3">
-                <span className="text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#c5a059] font-sans font-medium">
-                  OUR COLLECTIONS
-                </span>
-                <span className="h-[1px] w-8 sm:w-10 bg-[#c5a059]/50" />
-              </div>
+              <ScrollReveal delay={100} distance={16}>
+                <div className="flex items-center space-x-3">
+                  <span className="text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#c5a059] font-sans font-medium">
+                    OUR COLLECTIONS
+                  </span>
+                  <span className="h-[1px] w-8 sm:w-10 bg-[#c5a059]/50" />
+                </div>
+              </ScrollReveal>
 
               {/* Main Headline */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] xl:text-[52px] text-[#f8f4ee] leading-[1.12] font-normal tracking-tight">
-                Timeless Pieces.<br />
-                Endless Stories.
-              </h2>
+              <ScrollReveal delay={250} distance={24}>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] xl:text-[52px] text-[#f8f4ee] leading-[1.12] font-normal tracking-tight">
+                  Timeless Pieces.<br />
+                  Endless Stories.
+                </h2>
+              </ScrollReveal>
 
               {/* Editorial Description */}
-              <p className="text-[#cfc3b3] text-sm sm:text-base leading-relaxed max-w-md font-light font-sans">
-                From temple jewellery to contemporary classics, our collections celebrate the
-                artistry, culture and elegance of Indian jewellery — designed for the modern woman.
-              </p>
+              <ScrollReveal delay={400} distance={20}>
+                <p className="text-[#cfc3b3] text-sm sm:text-base leading-relaxed max-w-md font-light font-sans">
+                  From temple jewellery to contemporary classics, our collections celebrate the
+                  artistry, culture and elegance of Indian jewellery — designed for the modern woman.
+                </p>
+              </ScrollReveal>
 
               {/* Explore Collections CTA with Royal Emblem & Arrow */}
-              <div className="pt-2 sm:pt-4">
-                <button
-                  onClick={() => setSelectedItem(collections[0])}
-                  className="inline-flex items-center space-x-3 text-[#dec388] hover:text-[#f8f4ee] transition-all duration-300 group cursor-pointer focus:outline-none"
-                  aria-label="Explore Trisara Collections"
-                >
-                  <div className="w-5 h-5 relative shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Image
-                      src="/images/trisara_emblem_clean.png"
-                      alt="Trisara Royal Emblem"
-                      fill
-                      sizes="20px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="font-serif italic text-base sm:text-lg tracking-wide text-[#dec388] group-hover:text-[#f8f4ee] transition-colors">
-                    Explore Collections
-                  </span>
-                  <span className="h-[1px] w-14 sm:w-20 bg-[#c5a059]/60 group-hover:w-28 group-hover:bg-[#c5a059] transition-all duration-300" />
-                  <span className="text-sm font-light text-[#c5a059] group-hover:text-[#f8f4ee] transform group-hover:translate-x-1.5 transition-transform duration-300">
-                    →
-                  </span>
-                </button>
-              </div>
+              <ScrollReveal delay={550} distance={16}>
+                <div className="pt-2 sm:pt-4">
+                  <button
+                    onClick={() => setSelectedItem(collections[0])}
+                    className="inline-flex items-center space-x-3 text-[#dec388] hover:text-[#f8f4ee] transition-all duration-300 group cursor-pointer focus:outline-none"
+                    aria-label="Explore Trisara Collections"
+                  >
+                    <div className="w-5 h-5 relative shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src="/images/trisara_emblem_clean.png"
+                        alt="Trisara Royal Emblem"
+                        fill
+                        sizes="20px"
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className="font-serif italic text-base sm:text-lg tracking-wide text-[#dec388] group-hover:text-[#f8f4ee] transition-colors">
+                      Explore Collections
+                    </span>
+                    <span className="h-[1px] w-14 sm:w-20 bg-[#c5a059]/60 group-hover:w-28 group-hover:bg-[#c5a059] transition-all duration-300" />
+                    <span className="text-sm font-light text-[#c5a059] group-hover:text-[#f8f4ee] transform group-hover:translate-x-1.5 transition-transform duration-300">
+                      →
+                    </span>
+                  </button>
+                </div>
+              </ScrollReveal>
             </div>
 
-            {/* Right Column: 3 Category Portrait Cards */}
+            {/* Right Column: 3 Category Portrait Cards with Staggered Entrance */}
             <div className="lg:col-span-7">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-                {collections.map((item) => (
-                  <div
-                    key={item.id}
-                    onClick={() => setSelectedItem(item)}
-                    className="group cursor-pointer flex flex-col bg-[#1a110c]/80 border border-[#c5a059]/25 hover:border-[#c5a059]/70 rounded-[1px] overflow-hidden shadow-xl transition-all duration-300 transform sm:hover:-translate-y-1.5"
-                  >
-                    {/* Top Photograph Container */}
-                    <div className="w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[#160d09] relative">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 260px"
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                        priority
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1a110c] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
-                    </div>
+                {collections.map((item, idx) => (
+                  <ScrollReveal key={item.id} delay={200 + idx * 150} distance={28}>
+                    <div
+                      onClick={() => setSelectedItem(item)}
+                      className="group cursor-pointer flex flex-col bg-[#1a110c]/80 border border-[#c5a059]/25 hover:border-[#c5a059]/70 rounded-[1px] overflow-hidden shadow-xl transition-all duration-300 transform sm:hover:-translate-y-1.5"
+                    >
+                      {/* Top Photograph Container */}
+                      <div className="w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[#160d09] relative">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 260px"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                          priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1a110c] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                      </div>
 
-                    {/* Bottom Label Panel: Matching Reference Design */}
-                    <div className="px-4 py-3 sm:py-3.5 bg-[#170e0a]/90 border-t border-[#c5a059]/15 flex items-center justify-between">
-                      <span className="font-serif text-sm sm:text-base text-[#f5efe6] group-hover:text-[#c5a059] transition-colors font-normal tracking-wide">
-                        {item.label}
-                      </span>
-                      <span className="text-xs text-[#c5a059] group-hover:translate-x-1.5 transition-transform duration-300">
-                        →
-                      </span>
+                      {/* Bottom Label Panel: Matching Reference Design */}
+                      <div className="px-4 py-3 sm:py-3.5 bg-[#170e0a]/90 border-t border-[#c5a059]/15 flex items-center justify-between">
+                        <span className="font-serif text-sm sm:text-base text-[#f5efe6] group-hover:text-[#c5a059] transition-colors font-normal tracking-wide">
+                          {item.label}
+                        </span>
+                        <span className="text-xs text-[#c5a059] group-hover:translate-x-1.5 transition-transform duration-300">
+                          →
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>

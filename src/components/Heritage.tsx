@@ -3,9 +3,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Sparkles, X, Award, ShieldCheck, MapPin } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 export default function Heritage() {
   const [lineageModalOpen, setLineageModalOpen] = useState(false);
+  const { ref: parallaxRef, offset } = useParallax(0.1);
 
   return (
     <>
@@ -23,9 +26,15 @@ export default function Heritage() {
           }}
         />
 
-        {/* Left Visual Column: Handcrafted Antique Jhumka Anchored to True Viewport Edge */}
-        <div className="absolute left-0 top-0 bottom-0 w-full sm:w-[50%] lg:w-[48%] xl:w-[50%] h-full pointer-events-none select-none overflow-hidden z-10">
-          <div className="relative w-full h-full">
+        {/* Left Visual Column: Handcrafted Antique Jhumka with Gentle Living Parallax */}
+        <div
+          ref={parallaxRef}
+          className="absolute left-0 top-0 bottom-0 w-full sm:w-[50%] lg:w-[48%] xl:w-[50%] h-full pointer-events-none select-none overflow-hidden z-10"
+        >
+          <div
+            className="relative w-full h-[116%] -top-[8%] transition-transform duration-100 ease-out"
+            style={{ transform: `translate3d(0, ${offset}px, 0)`, willChange: "transform" }}
+          >
             <Image
               src="/images/story_jhumka_hq.jpg"
               alt="Trisara Handcrafted Antique Gold Jhumka on Carved Wood"
@@ -48,60 +57,68 @@ export default function Heritage() {
         </div>
 
         <div className="max-w-[1440px] 2xl:max-w-[1680px] mx-auto min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] xl:min-h-[620px] flex items-center justify-end relative z-20">
-          {/* Right Content Column */}
+          {/* Right Content Column: Museum Staggered Reveal */}
           <div className="w-full sm:w-[52%] lg:w-[50%] px-6 sm:px-10 lg:px-16 py-14 sm:py-16 lg:py-20 ml-auto">
             <div className="max-w-xl lg:max-w-lg xl:max-w-xl space-y-5 sm:space-y-6">
               {/* Tagline */}
-              <div className="flex items-center space-x-3">
-                <span className="text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#9e8571] font-sans font-medium">
-                  OUR STORY
-                </span>
-                <span className="h-[1px] w-8 sm:w-10 bg-[#9e8571]/40" />
-              </div>
+              <ScrollReveal delay={100} distance={18}>
+                <div className="flex items-center space-x-3">
+                  <span className="text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#9e8571] font-sans font-medium">
+                    OUR STORY
+                  </span>
+                  <span className="h-[1px] w-8 sm:w-10 bg-[#9e8571]/40" />
+                </div>
+              </ScrollReveal>
 
               {/* Headline */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] xl:text-[52px] text-[#362114] leading-[1.12] font-normal tracking-tight">
-                A Legacy<br />
-                of Craftsmanship.
-              </h2>
+              <ScrollReveal delay={250} distance={24}>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] xl:text-[52px] text-[#362114] leading-[1.12] font-normal tracking-tight">
+                  A Legacy<br />
+                  of Craftsmanship.
+                </h2>
+              </ScrollReveal>
 
               {/* Editorial Narrative */}
-              <div className="space-y-4 text-[#6e5a4d] text-sm sm:text-base leading-relaxed max-w-lg font-light font-sans">
-                <p>
-                  Trisara Jewellers was founded with a vision to preserve India&apos;s rich jewellery heritage
-                  while creating timeless pieces for the modern woman.
-                </p>
-                <p>
-                  Our journey is rooted in tradition, guided by artisanship and driven by a deep
-                  commitment to quality, authenticity and elegance.
-                </p>
-              </div>
+              <ScrollReveal delay={400} distance={20}>
+                <div className="space-y-4 text-[#6e5a4d] text-sm sm:text-base leading-relaxed max-w-lg font-light font-sans">
+                  <p>
+                    Trisara Jewellers was founded with a vision to preserve India&apos;s rich jewellery heritage
+                    while creating timeless pieces for the modern woman.
+                  </p>
+                  <p>
+                    Our journey is rooted in tradition, guided by artisanship and driven by a deep
+                    commitment to quality, authenticity and elegance.
+                  </p>
+                </div>
+              </ScrollReveal>
 
               {/* Learn More Action with Royal Emblem & Arrow */}
-              <div className="pt-2 sm:pt-4">
-                <button
-                  onClick={() => setLineageModalOpen(true)}
-                  className="inline-flex items-center space-x-3 text-[#7a5035] hover:text-[#4a2e1d] transition-all duration-300 group cursor-pointer focus:outline-none"
-                  aria-label="Learn more about Trisara heritage"
-                >
-                  <div className="w-5 h-5 relative shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Image
-                      src="/images/trisara_emblem_bronze.png"
-                      alt="Trisara Royal Emblem"
-                      fill
-                      sizes="20px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="font-serif italic text-base sm:text-lg tracking-wide">
-                    Learn More
-                  </span>
-                  <span className="h-[1px] w-14 sm:w-20 bg-[#7a5035]/60 group-hover:w-28 group-hover:bg-[#7a5035] transition-all duration-300" />
-                  <span className="text-sm font-light transform group-hover:translate-x-1 transition-transform duration-300">
-                    →
-                  </span>
-                </button>
-              </div>
+              <ScrollReveal delay={550} distance={16}>
+                <div className="pt-2 sm:pt-4">
+                  <button
+                    onClick={() => setLineageModalOpen(true)}
+                    className="inline-flex items-center space-x-3 text-[#7a5035] hover:text-[#4a2e1d] transition-all duration-300 group cursor-pointer focus:outline-none"
+                    aria-label="Learn more about Trisara heritage"
+                  >
+                    <div className="w-5 h-5 relative shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src="/images/trisara_emblem_bronze.png"
+                        alt="Trisara Royal Emblem"
+                        fill
+                        sizes="20px"
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className="font-serif italic text-base sm:text-lg tracking-wide">
+                      Learn More
+                    </span>
+                    <span className="h-[1px] w-14 sm:w-20 bg-[#7a5035]/60 group-hover:w-28 group-hover:bg-[#7a5035] transition-all duration-300" />
+                    <span className="text-sm font-light transform group-hover:translate-x-1 transition-transform duration-300">
+                      →
+                    </span>
+                  </button>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>

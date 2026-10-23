@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ScrollReveal from "./ScrollReveal";
 
 export default function ValuePillars() {
   const pillars = [
@@ -70,20 +71,21 @@ export default function ValuePillars() {
       <div className="max-w-[1440px] 2xl:max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#c5a059]/25 text-center">
           {pillars.map((pillar, idx) => (
-            <div
-              key={idx}
-              className="px-4 sm:px-6 py-6 sm:py-2 flex flex-col items-center space-y-2.5 sm:space-y-3 group"
-            >
-              <div className="w-12 h-12 flex items-center justify-center text-[#c5a059] group-hover:scale-110 transition-transform duration-300">
-                {pillar.icon}
+            <ScrollReveal key={idx} delay={idx * 120} distance={20}>
+              <div
+                className="px-4 sm:px-6 py-6 sm:py-2 flex flex-col items-center space-y-2.5 sm:space-y-3 group"
+              >
+                <div className="w-12 h-12 flex items-center justify-center text-[#c5a059] group-hover:scale-110 transition-transform duration-300">
+                  {pillar.icon}
+                </div>
+                <h4 className="font-serif text-base sm:text-lg font-medium tracking-wide text-[#f8f4ee]">
+                  {pillar.title}
+                </h4>
+                <p className="text-xs text-[#cfc3b3] max-w-[200px] leading-relaxed font-light font-sans">
+                  {pillar.desc}
+                </p>
               </div>
-              <h4 className="font-serif text-base sm:text-lg font-medium tracking-wide text-[#f8f4ee]">
-                {pillar.title}
-              </h4>
-              <p className="text-xs text-[#cfc3b3] max-w-[200px] leading-relaxed font-light font-sans">
-                {pillar.desc}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
